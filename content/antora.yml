@@ -1,0 +1,9 @@
+---
+name: modules
+version: master
+
+asciidoc:
+  attributes:
+    lab_name: "Performance observability in practice with bcc tools"
+    release-version: master
+    page-pagination: true

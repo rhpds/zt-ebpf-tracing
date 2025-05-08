@@ -1,0 +1,27 @@
+---
+antora:
+  name: modules
+  dir: www
+  modules:
+    - name: "01-install-tools"
+      label: "Install Tools"
+      solveButton: true
+    - name: "02-run-bcc-tools"
+      label: "Run Bcc Tools"
+      solveButton: true
+    - name: "03-file-ops"
+      label: "File Ops"
+      solveButton: true
+    - name: "04-dnf"
+      label: "Dnf"
+      solveButton: true
+    - name: "05-more-dnf"
+      label: "More Dnf"
+      solveButton: true
+    - name: "06-other-tools"
+      label: "Other Tools"
+      solveButton: true
+
+tabs:
+  - name: ">_ terminal"
+    url: /wetty
