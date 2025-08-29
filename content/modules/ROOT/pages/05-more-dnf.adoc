@@ -14,4 +14,7 @@ In the above output, you see the file that `+dnf+` is working on and the latency
 
 If you look at the _cachestat_ tab, you will see that the number of misses on the cache has gone up during the `+dnf+` package installation procedure as it is starting to need access to data that is not cached:
 
+.Cachestat output during `+dnf+` update
+image::cache_hit.png[cachestat miss.png]
+
 If you keep watching the _cachestat_ terminal, you will notice that the number of misses goes back down to zero after the `+dnf update+` completes. This is because when the `+dnf update+` is finished, the virtual machine returns to a more idle state and there is very little running that needs access to storage.

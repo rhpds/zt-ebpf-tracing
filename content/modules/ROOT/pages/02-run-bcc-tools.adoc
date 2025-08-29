@@ -6,6 +6,8 @@ In this step, you will start running the bcc-tools to prepare for observing an a
 
 First, you will validate the environment and that it is not currently using any eBPF calls. To do this, you will install the `+bpftool+` utility.
 
+Run the following command in the `+dnf+` terminal to install the `+bpftool+` utility.
+
 [source,bash,run]
 ----
 dnf install -y bpftool
@@ -28,21 +30,21 @@ Click on the tab `+gethostlatency+`.
 .Click on the tab `+gethostlatency+`
 image::gethostlatencytab.png[gethostlatencytab.png]
 
-The tool `+gethostlatency+` has been launched for you by running `+/usr/share/bcc/tools/gethostlatency+`.
+Run the command `+/usr/share/bcc/tools/gethostlatency+` in the `+gethostlatency+` terminal.
 
 [source,bash,run]
 ----
 /usr/share/bcc/tools/gethostlatency
 ----
 
-The `+gethostlatency+` bcc-tool is showing latency statistics on the `+getaddrinfo()+` and `+gethostbyname()+` system calls. Effectively, you get to see how long these system calls take and which hostnames the applications need IP addresses for. This can be useful for discovering network connections that your applications are making.
+The `+gethostlatency+` bcc-tool will show latency statistics on the `+getaddrinfo()+` and `+gethostbyname()+` system calls. Effectively, you get to see how long these system calls take and which hostnames the applications need IP addresses for. This can be useful for discovering network connections that your applications are making.
 
 Next, click on the tab `+tcplife+`.
 
 .Click on the tab `+tcplife+`
 image::tcplifetab.png[tcplifetab.png]
 
-`+tcplife+` was launched with the following command:
+Run the command `+/usr/share/bcc/tools/tcplife+` in the `+tcplife+` terminal.
 
 [source,bash,run]
 ----
@@ -51,5 +53,8 @@ image::tcplifetab.png[tcplifetab.png]
 
 The following header should now be displayed in the _tcplife_ terminal,
 indicating the tool is running:
+
+.The `+tcplife+` tool is running
+image::tcplife_header.png[tcplife_header.png]
 
 `+tcplife+` will tell you data about established tcp connections. PID is the process ID of the process opening the connection. COMM, the command that corresponds to the PID. LADDR and LPORT reference the local address and port of the connection. RADDR and RPORT the remote address and port. TX_KB and RX_KB are the amount of data Transmitted (in Kilobytes) and Received (in Kilobytes). MS is the time of the connection, in milliseconds.

@@ -6,12 +6,17 @@ eBPF is an in-kernel virtual machine that allows code execution in the kernel sp
 
 The bcc-tools package provides many pre-created tools that provide data from functions built with eBPF.
 
-First, in the *dnf* terminal tab, install the kernel-devel package for your currently running kernel and the bcc-tools packages.
+First, in the `+dnf+` terminal tab, install the kernel-devel package for your currently running kernel and the bcc-tools packages.
 
 .Install the kernel-devel package and the bcc-tools package
 image::yumtab.png[yumtab.png]
 
-Enter the following command:
+At the top of each code block, there is a *Run* button.
+
+.Click on the *Run* button
+image::run_button.png[Run button]
+
+Click on the *Run* button to run the command in the `+dnf+` terminal.
 
 [source,bash,run]
 ----

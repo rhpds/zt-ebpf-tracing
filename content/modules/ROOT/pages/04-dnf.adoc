@@ -9,16 +9,25 @@ Time to observe what happens when `+dnf+` does an update from a system perspecti
 dnf update -y
 ----
 
-The first thing that `+dnf+` does is updates repository metadata. This is going to create activity on your _gethostlatency_ terminal and your _tcplife_ terminal as the data is being downloaded from the Red Hat Content Delivery Network (CDN). You can look at those tool outputs to see the network connections that the `+dnf update+` establishes in real time.
+The first thing that `+dnf+` does is updates repository metadata. This is going to create activity on your `+gethostlatency+` terminal and your `+tcplife+` terminal as the data is being downloaded from the Red Hat Content Delivery Network (CDN). You can look at those tool outputs to see the network connections that the `+dnf update+` establishes in real time.
 
-You will see entries on our _gethostlatency_ tab similar to:
+You will see entries on our `+gethostlatency+` tab similar to:
+
+.Entries on the `+gethostlatency+` tab
+image::latency_satellite.png[latency_satellite.png]
 
 These show `+dnf+` looking up IP addresses for localhost, subscription.rhsm.redhat.com, and cdn.redhat.com. `+gethostlatency+` makes it really easy to know what hosts our application is talking to.
 
 Also look at the _cachestat_ tab and you should see output similar to:
 
+.Entries on the `+cachestat+` tab
+image::latency_cache.png[cachestat.png]
+
 This shows that you are operating entirely on system cache and not having to retrieve data from storage at this point in the operation.
 
 Look at your _tcplife_ tab when `+dnf+` has finished downloading packages. You will see output similar to the sample below:
 
-The output shows you that `+dnf+` has established a connection on port 443 to IP address 2.16.30.83. Further, according to the sample output above, that connection lasted for 36375.04 milliseconds, or 36.37504 seconds. This correlates to the amount of time `+dnf+` spent downloading packages.
+.Entries on the `+tcplife+` tab
+image::tcplife_dnf.png[tcplife_dnf.png]
+
+The output shows you that `+dnf+` has established a connection on port 443 to IP address 52.14.50.151. Further, according to the sample output above, you can observer the connection time in milliseconds. This correlates to the amount of time `+dnf+` spent downloading packages.

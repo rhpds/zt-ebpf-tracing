@@ -9,7 +9,7 @@ Click on the `+filetop+` tab.
 .Click on the tab `+filetop+`
 image::filetoptab.png[filetoptab.png]
 
-The `+filetop+` tool was launched by running the following command.
+Run the command `+/usr/share/bcc/tools/filetop+` in the `+filetop+` terminal.
 
 [source,bash,run]
 ----
@@ -18,13 +18,19 @@ The `+filetop+` tool was launched by running the following command.
 
 You should see a top-like tool that refreshes every second with a header that looks like the example below:
 
+.The `+filetop+` tool is running
+image::filetop.png[filetop.png]
+
 If you see this, you know that the tool is properly running. This tool will track the count of READS and WRITES as well as the size, R_Kb and W_Kb, respectively. Additionally, it includes the type, T, of file and the FILE itself that is interacted with by the command, COMM.
 
 In the `+filetop+` tab in the terminal, you are going to see applications accessing files in realtime, so this will get pretty busy.
 
 Now click the `+xfsslower+` tab.
 
-The `+xfsslower+` tool was run with the following command.
+.Click on the tab `+xfsslower+`
+image::xfsslower.png[xfsslowertab.png]
+
+Run the command `+/usr/share/bcc/tools/xfsslower+` in the `+xfsslower+` terminal.
 
 [source,bash,run]
 ----
@@ -33,13 +39,18 @@ The `+xfsslower+` tool was run with the following command.
 
 You should see the header below in the `+xfsslower+` tab, indicating that the tool is properly running:
 
+.The `+xfsslower+` tool is running
+image::xfsslower_run.png[xfsslower.png]
+
+
 You probably will not see much until the sample workload, a `+yum update+`, begins. Once it starts to install the packages, it is going to start showing output operations taking longer than 10ms, LAT(ms), and the files, FILENAME, these operations are operating upon. The sample workload will push the boundaries of what our virtual machine's storage can keep up with which is why XFS operations will start taking over the 10ms latency threshold used by this tool for reporting slower operations.
 
 Lastly, click the `+cachestat+` tab.
 
-We have not yet launched `+cachestat+`.
+.Click on the tab `+cachestat tab+`
+image::cachestattab.png[cachestat_tab.png]
 
-Run the following command.
+Run the command `+/usr/share/bcc/tools/cachestat+` in the `+cachestat+` terminal.
 
 [source,bash,run]
 ----
@@ -47,6 +58,9 @@ Run the following command.
 ----
 
 You should see the following header in the _cachestat_ terminal, indicating that the tool is properly running:
+
+.The `+cachestat+` tool is running
+image::cachestat.png[cachestat.png]
 
 In the _cachestat_ terminal, you will get to see, in real time, the hits and misses on the Linux memory cache. The second column is MISSES, and the third column is HITS. You should see mostly 0 misses for the first part of the `+dnf update+` workload (which you have not run yet). However, once you get to the installation of packages, you should see your misses start to increase as the operations start to interact with files on disk and other data not already cached in system memory.
 
