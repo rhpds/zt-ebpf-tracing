@@ -23,5 +23,15 @@ antora:
       solveButton: false
 
 tabs:
-  - name: ">_ terminal"
+  - name: "dnf"
+    url: /wetty_rhel/ssh/root
+  - name: "gethostlatency"
+    url: /wetty_rhel/ssh/root
+  - name: "tcplife"
+    url: /wetty_rhel/ssh/root
+  - name: "filetop"
+    url: /wetty_rhel/ssh/root
+  - name: "xfsslower"
+    url: /wetty_rhel/ssh/root
+  - name: "cachestat"
     url: /wetty_rhel/ssh/root
