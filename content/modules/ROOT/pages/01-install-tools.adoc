@@ -1,3 +1,7 @@
+:imagesdir: ../assets/images
+
+== eBPF Tools
+
 eBPF is an in-kernel virtual machine that allows code execution in the
 kernel space, in a restricted sandbox environment with access to a
 limited set of functions. The virtual machine executes special
@@ -11,7 +15,9 @@ from functions built with eBPF.
 
 First, in the *dnf* terminal tab, install the kernel-devel package for
 your currently running kernel and the bcc-tools packages.
-image:../assets/yumtab.png[yumtab.png]
+
+.Install the kernel-devel package and the bcc-tools package
+image::yumtab.png[yumtab.png]
 
 Enter the following command:
 
@@ -20,11 +26,9 @@ Enter the following command:
 dnf install -y kernel-devel-$(uname -r) bcc-tools
 ----
 
-____
-*Note:* In the command above, we embed the `+uname -r+` command to
+NOTE: In the command above, we embed the `+uname -r+` command to
 automatically determine, and embed, the version of the currently running
 kernel.
-____
 
 Next, inspect the content of the bcc-tools package to see some of the
 pre-built tool catalog that is provided. Each of these tools has a
@@ -36,6 +40,4 @@ well as any options that may be used when running the tool.
 rpm -ql bcc-tools | grep /usr/share/bcc/tools/
 ----
 
-You will be working with several of these tools in the next steps. The
-tools provided by the bcc-tools package are installed in the
-/usr/share/bcc/tools directory.
+You will be working with several of these tools in the next steps. The tools provided by the bcc-tools package are installed in the /usr/share/bcc/tools directory.

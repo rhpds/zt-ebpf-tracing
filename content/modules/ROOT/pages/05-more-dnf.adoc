@@ -1,34 +1,17 @@
-Next, `+dnf+` will begin installing the updates and removing old
-packages. To do this, `+dnf+` is going to use the disk and memory
-resources; you will monitor this using `+filetop+`, `+xfsslower+` and
-`+cachestat+`.
+:imagesdir: ../assets/images
 
-In the _filetop_ tab, you will start to see files being read and written
-to disk. As `+dnf+` reads files from an rpm package, it writes them out
-to the disk. Below is what the read operations should look like:
+== More `+dnf+` Update
 
-From the above output, you can see in the Type column(T) that these are
-regular files(R). Further, you can see the counters in the READS column
-report greater than 0. This shows you in, real time, what `+dnf+` is
-doing with files on the system.
+Next, `+dnf+` will begin installing the updates and removing old packages. To do this, `+dnf+` is going to use the disk and memory resources; you will monitor this using `+filetop+`, `+xfsslower+` and`+cachestat+`.
 
-Further, on the _xfsslower_ tab, you will start to see XFS operations
-take longer than the 10ms threshold and disk operations will start to be
-displayed:
+In the _filetop_ tab, you will start to see files being read and written to disk. As `+dnf+` reads files from an rpm package, it writes them out to the disk. Below is what the read operations should look like:
 
-In the above output, you see the file that `+dnf+` is working on and the
-latency in the LAT(ms) column, the data above shows that the longest
-latency was 567.45 milliseconds while accessing the packages.db-journal
-file. If you wish to improve the speed of `+dnf update+` on this system
-by reducing latency, you may want to look at upgrading the underlying
-storage of this system.
+From the above output, you can see in the Type column(T) that these are regular files(R). Further, you can see the counters in the READS column report greater than 0. This shows you in, real time, what `+dnf+` is doing with files on the system.
 
-If you look at the _cachestat_ tab, you will see that the number of
-misses on the cache has gone up during the `+dnf+` package installation
-procedure as it is starting to need access to data that is not cached:
+Further, on the _xfsslower_ tab, you will start to see XFS operations take longer than the 10ms threshold and disk operations will start to be displayed:
 
-If you keep watching the _cachestat_ terminal, you will notice that the
-number of misses goes back down to zero after the `+dnf update+`
-completes. This is because when the `+dnf update+` is finished, the
-virtual machine returns to a more idle state and there is very little
-running that needs access to storage.
+In the above output, you see the file that `+dnf+` is working on and the latency in the LAT(ms) column, the data above shows that the longest latency was 567.45 milliseconds while accessing the packages.db-journal file. If you wish to improve the speed of `+dnf update+` on this system by reducing latency, you may want to look at upgrading the underlying storage of this system.
+
+If you look at the _cachestat_ tab, you will see that the number of misses on the cache has gone up during the `+dnf+` package installation procedure as it is starting to need access to data that is not cached:
+
+If you keep watching the _cachestat_ terminal, you will notice that the number of misses goes back down to zero after the `+dnf update+` completes. This is because when the `+dnf update+` is finished, the virtual machine returns to a more idle state and there is very little running that needs access to storage.
